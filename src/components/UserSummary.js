@@ -13,7 +13,7 @@ const UserSummary = (props) => {
     },[props.userId])
     return(
         <span className="text-muted">
-            {userPublicProfile.name ? `- ${userPublicProfile.name} (@${userPublicProfile.username})`: <Spinner animation="border" role="status" size="sm"/>}
+            {userPublicProfile.name ? `${userPublicProfile.name} (@${userPublicProfile.username})`: <Spinner animation="border" role="status" size="sm"/>}
         </span>
     )
 }
