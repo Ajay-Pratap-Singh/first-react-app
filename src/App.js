@@ -12,7 +12,7 @@ function App() {
   useEffect(()=>{
       (async ()=>{
         console.log('Fetching Posts');
-        setPosts((await axios.get('https://jsonplaceholder.typicode.com/posts')).data);
+        setPosts((await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5')).data);
       })()
   },[]);
   return (

@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {FaShare} from 'react-icons/fa';
+import {FaShareAlt} from 'react-icons/fa';
 import {Button,Modal,Container,Row,Col} from 'react-bootstrap';
 
 import {
@@ -30,7 +30,7 @@ export default function Share(props) {
     return (
         <>
             <Button title="Share" variant="secondary" onClick={handleShow} size="sm" className="pt-0">
-                <FaShare size="1em"/>
+                <FaShareAlt size="1em"/>
             </Button>
 
             <Modal show={show} onHide={handleClose}>

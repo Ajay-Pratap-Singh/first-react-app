@@ -17,7 +17,7 @@ export default function Views(props){
             </InputGroup.Prepend>
             <FormControl
                 title="Views"
-                readonly
+                readOnly
                 disabled
                 placeholder="Username"
                 aria-label="Username"

@@ -52,7 +52,7 @@ export default function Vote(props){
                 </InputGroup.Prepend>
                 <FormControl
                     title="Likes"
-                    readonly
+                    readOnly
                     disabled
                     placeholder="Username"
                     aria-label="Username"
@@ -75,7 +75,7 @@ export default function Vote(props){
                 </InputGroup.Prepend>
                 <FormControl
                     title="Dislikes"
-                    readonly
+                    readOnly
                     disabled
                     placeholder="Username"
                     aria-label="Username"

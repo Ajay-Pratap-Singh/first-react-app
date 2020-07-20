@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {FaComment,FaAngleDown,FaAngleUp} from 'react-icons/fa';
-import {Button,InputGroup,FormControl,Col,Row,Collapse} from 'react-bootstrap';
+import {Button,ListGroup,InputGroup,FormControl,Col,Row,Collapse} from 'react-bootstrap';
 
 function CommentIcon(props){
     return (
@@ -16,7 +16,7 @@ function CommentIcon(props){
             </InputGroup.Prepend>
             <FormControl
                 title="Comments"
-                readonly
+                readOnly
                 disabled
                 placeholder="Username"
                 aria-label="Username"
@@ -32,7 +32,7 @@ function CommentSection() {
 
     return (
         <>
-        <Row className="my-3">
+        <Row>
             <Col>
                 <hr/>
             </Col>
@@ -54,9 +54,9 @@ function CommentSection() {
         </Row>
         <Row>
             <Collapse in={open}>
-                <div id="comment-sec">
-                    Comment Sections will have all the comments of the answer.
-                </div>
+                <ListGroup id="comment-sec" variant="flush" className="border-top">
+                    {/*categories.map((obj)=><Category name={obj.name} following={true}/>)*/}
+                </ListGroup>
             </Collapse>
         </Row>
         </>

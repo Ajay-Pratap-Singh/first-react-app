@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react';
 import { FaUserAlt } from "react-icons/fa";
 import {Card} from 'react-bootstrap';
 import UserSummary from './UserSummary';
+import {CommentSection} from './Comments';
 import ViewsVoteShareReport from './ViewsVoteShareReport';
 
 const VoteContext=createContext({
@@ -20,12 +21,13 @@ const Post = (props) => {
                 <br/>
                 <h4>{props.title}</h4>
                 {props.body}<br/>
-            </Card.Body>
-            <VoteContext.Provider value={contextValue}>
-                <Card.Footer>
+                <VoteContext.Provider value={contextValue}>
                     <ViewsVoteShareReport/>
-                </Card.Footer>
-            </VoteContext.Provider>
+                </VoteContext.Provider>
+            </Card.Body>
+            <Card.Footer>
+                <CommentSection/>
+            </Card.Footer>
         </Card>
     )
 }

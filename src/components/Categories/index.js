@@ -16,7 +16,7 @@ const CategoriesPanel = () => {
             <Card.Title className="pt-2 px-3">Categories</Card.Title>
             <Card.Body className="p-0">
                 <ListGroup variant="flush" className="border-top">
-                    {categories.map((obj)=><Category name={obj.name} following={true}/>)}
+                    {categories.map((obj,key)=><Category key={key} name={obj.name} following={true}/>)}
                 </ListGroup>
             </Card.Body>
         </Card>
