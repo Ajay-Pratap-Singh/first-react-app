@@ -1,7 +1,7 @@
 import React, { useState, createContext } from 'react';
 import { FaUserAlt } from "react-icons/fa";
 import {Card} from 'react-bootstrap';
-import UserSummary from './UserSummary';
+import AuthorInfo from './AuthorInfo';
 import {CommentSection} from './Comments';
 import ViewsVoteShareReport from './ViewsVoteShareReport';
 
@@ -16,11 +16,11 @@ const Post = (props) => {
     return  (
         <Card className="mb-3">
             <Card.Body>
-                <FaUserAlt className="mr-3 mb-3"/>
-                <UserSummary userId={props.userId}/>
-                <br/>
                 <h4>{props.title}</h4>
-                {props.body}<br/>
+                <br/>
+                <br/>
+                <AuthorInfo/>
+                {props.body}
                 <VoteContext.Provider value={contextValue}>
                     <ViewsVoteShareReport/>
                 </VoteContext.Provider>
