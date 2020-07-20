@@ -1,5 +1,4 @@
 import React, { useState, createContext } from 'react';
-import { FaUserAlt } from "react-icons/fa";
 import {Card} from 'react-bootstrap';
 import AuthorInfo from './AuthorInfo';
 import {CommentSection} from './Comments';

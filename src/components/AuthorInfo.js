@@ -1,29 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import userThumb from './userThumb.jpeg'
 import {Badge,Col,Row,Image} from 'react-bootstrap';
 
 const AuthorInfo = (props) => {
-    const imgSize={width:"72px"}
+    const imgSize={width:props.min?"36px":"72px"}
     return  (
-            <Row noGutters>
-                <Col lg={"auto"} className="mr-3 text-center">
-                    <Image className="mb-1" src={userThumb} roundedCircle style={imgSize}/>
-                </Col>
-                <Col style={{lineHeight:"1.2"}}>
+        <Row className="mb-3" style={{lineHeight:"1.2"}} noGutters> 
+            <Col xs={"auto"} className="mr-1 text-center">
+                <Image className="mt-md-0 my-2" src={userThumb} roundedCircle style={imgSize}/>
+            </Col>
+            <Col>
+                <Col>
                     <p className="pr-0 m-0">
                         <strong>
                             Abhishek Parashar Maheshwari
                         </strong>
-                        <span className="text-muted pl-1" >
-                            &middot; last updated Jul 23
-                        </span>
+                        {props.min?null:<span className="text-muted d-none d-md-inline ml-1" >
+                            · last updated Jul 23
+                        </span>}
                     </p>
-                    <span className="text-muted" style={{lineHeight:"1"}}>(@para-abhi) <Badge size="sm" variant="warning">Noobie</Badge></span>
-                    <p style={{lineHeight:"1.6"}}>
-                        I love to draw and love.
-                    </p> 
+                    {props.min?null:<span className="text-muted" style={{lineHeight:"1"}}>(@para-abhi) <Badge size="sm" variant="warning">Noobie</Badge></span>}
+                    {props.min?null:<p className="my-1">
+                        I love to draw and love. I repeat, I love to draw and love.
+                    </p>}
                 </Col>
-            </Row>
+                <Col className={props.min?"pl-3":"d-md-none pl-md-1"} md="auto">
+                    <span className="text-muted">
+                        last updated Jul 23
+                    </span>
+                </Col>
+            </Col>
+        </Row>
     )
 }
 export default AuthorInfo;
