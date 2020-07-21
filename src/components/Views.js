@@ -4,11 +4,11 @@ import {Button,InputGroup,FormControl,Col} from 'react-bootstrap';
 
 export default function Views(props){
     return (
-        <InputGroup as={Col}>
+        <InputGroup className="mr-1" as={Col} size="sm">
             <InputGroup.Prepend>
                 <Button 
                     title="Views"
-                    size="sm" className="pt-0" id="basic-addon1" 
+                    className="pt-0" id="basic-addon1" 
                     disabled
                     variant="secondary"
                 >
@@ -23,7 +23,6 @@ export default function Views(props){
                 aria-label="Username"
                 aria-describedby="basic-addon1"
                 value={props.count}
-                size="sm"
             />
         </InputGroup>
     );

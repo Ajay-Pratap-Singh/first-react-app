@@ -4,11 +4,11 @@ import {Button,ListGroup,InputGroup,FormControl,Col,Row,Collapse} from 'react-bo
 
 function CommentIcon(props){
     return (
-        <InputGroup as={Col}>
+        <InputGroup className="mr-1" size="sm" as={Col}>
             <InputGroup.Prepend>
                 <Button 
                     title="Comment"
-                    size="sm" className="pt-0" id="basic-addon1"
+                    className="pt-0" id="basic-addon1"
                     variant="secondary"
                 >
                     <FaComment size="1em"/>
@@ -22,7 +22,6 @@ function CommentIcon(props){
                 aria-label="Username"
                 aria-describedby="basic-addon1"
                 value={props.count}
-                size="sm"
             />
         </InputGroup>
     );
@@ -36,7 +35,7 @@ function CommentSection() {
             <Col>
                 <hr/>
             </Col>
-            <Button className="mx-auto" variant="link"
+            <Button size="sm" className="mx-auto" variant="link"
                 onClick={() => setOpen(!open)}
                 aria-controls="comment-sec"
                 aria-expanded={open} 

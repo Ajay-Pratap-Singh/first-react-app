@@ -38,11 +38,11 @@ export default function Vote(props){
     }
     return (
         <>
-            <InputGroup as={Col}>
+            <InputGroup className="mr-1" size="sm" as={Col}>
                 <InputGroup.Prepend>
                     <Button
                         title="Like" 
-                        size="sm" className="pt-0" id="basic-addon1" 
+                        className="pt-0" id="basic-addon1" 
                         disabled={clicked!==null} 
                         variant={voted===true ? "primary" : "secondary" } 
                         onClick={()=>{voteHandler(true)}}
@@ -54,18 +54,17 @@ export default function Vote(props){
                     title="Likes"
                     readOnly
                     disabled
-                    placeholder="Username"
+                    placeholder="Likes"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
                     value={upvoteCount}
-                    size="sm"
                 />
             </InputGroup>
-            <InputGroup as={Col}>
+            <InputGroup className="mr-1" size="sm" as={Col}>
                 <InputGroup.Prepend>
                     <Button 
                         title="Dislike"
-                        size="sm" className="pt-0" id="basic-addon1" 
+                        className="pt-0" id="basic-addon1" 
                         disabled={clicked!==null} 
                         variant={voted===false ? "danger" : "secondary" } 
                         onClick={()=>{voteHandler(false)}}
@@ -78,10 +77,9 @@ export default function Vote(props){
                     readOnly
                     disabled
                     placeholder="Username"
-                    aria-label="Username"
+                    aria-label="Dislikes"
                     aria-describedby="basic-addon1"
                     value={downvoteCount}
-                    size="sm"
                 />
             </InputGroup>
         </>

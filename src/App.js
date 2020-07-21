@@ -21,13 +21,13 @@ function App() {
         <Navbar/>
         <Container fluid className="mx-4 mt-2 w-auto">
           <Row>
-            <Col className="d-none d-md-block p-0">
+            <Col xs={"auto"} className="d-none d-lg-block p-0">
               <CategoriesPanel/>
             </Col>
-            <Col md={12} lg={7}>
+            <Col>
               {posts.map((obj)=><Post key={obj.id} title={obj.title} body={obj.body} userId={obj.userId}/>)}
             </Col>
-            <Col className="d-none d-lg-block p-0">
+            <Col xs={"auto"} className="d-none d-xl-block p-0">
               <CategoriesPanel/>
             </Col>
           </Row>

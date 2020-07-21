@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap';
 
 export default function Report() {
     return (
-        <Button title="Report" variant="secondary" onClick={()=>{alert("Report Clicked!!")}} size="sm" className="pt-0 ml-3">
+        <Button title="Report" variant="secondary" onClick={()=>{alert("Report Clicked!!")}} size="sm" className="pt-0">
             <FaExclamation size="1em"/>
         </Button>
     );

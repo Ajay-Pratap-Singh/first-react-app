@@ -12,7 +12,7 @@ const CategoriesPanel = () => {
         })()
     },[]);
     return (
-        <Card>
+        <Card style={{width:"100%",minWidth:"271px"}}>
             <Card.Title className="pt-2 px-3">Categories</Card.Title>
             <Card.Body className="p-0">
                 <ListGroup variant="flush" className="border-top">

@@ -29,7 +29,7 @@ export default function Share(props) {
 
     return (
         <>
-            <Button title="Share" variant="secondary" onClick={handleShow} size="sm" className="pt-0">
+            <Button title="Share" variant="secondary" onClick={handleShow} size="sm" className="mr-1 pt-0">
                 <FaShareAlt size="1em"/>
             </Button>
 
