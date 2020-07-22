@@ -13,7 +13,7 @@ const Entity = (props) => {
     const [voted,setVoted]=useState(null);//use props false(dislike)  null(not-voted)  true(like)
     const voteValue={voted,setVoted};
     return  (
-        <Card bg={props.bg} className={"mb-3 "+props.className} style={{width:"100%",maxWidth:"728px"}}>
+        <Card bg={props.bg} className={props.className?props.className:"mb-3"} style={{width:"100%",maxWidth:"728px"}}>
             <Card.Body>
                 {props.title?<Card.Title>{props.title}</Card.Title>:null}
                 <AuthorInfo min={props.type==='comment'}/>
