@@ -14,7 +14,7 @@ const Entity = (props) => {
     const voteValue={voted,setVoted};
     return  (
         <Card bg={props.bg} className={props.className||"mb-3"} style={{width:"100%",maxWidth:"728px"}}>
-            <Card.Body>
+            <Card.Body className="p-2 p-sm-3">
                 {props.title?<Card.Title>{props.title}</Card.Title>:null}
                 <AuthorInfo min={props.type==='comment'}/>
                 {props.body}

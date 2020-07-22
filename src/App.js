@@ -24,7 +24,7 @@ function App() {
             <Col xs={"auto"} className="d-none d-lg-block p-0">
               <CategoriesPanel/>
             </Col>
-            <Col>
+            <Col className="p-0 px-sm-2 px-md-3">
               {posts.map((obj)=><Entity key={obj.id} id={obj.id} type="answer" title={obj.title} body={obj.body} userId={obj.userId}/>)}
             </Col>
             <Col xs={"auto"} className="d-none d-xl-block p-0">
