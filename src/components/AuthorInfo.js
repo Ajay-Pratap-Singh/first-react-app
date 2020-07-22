@@ -5,7 +5,7 @@ import {Badge,Col,Row,Image} from 'react-bootstrap';
 const AuthorInfo = (props) => {
     const imgSize={width:props.min?"36px":"72px"}
     return  (
-        <Row className="mt-4 mb-1 pt-2" style={{lineHeight:"1.2"}} noGutters> 
+        <Row className="my-1 pt-2 pb-0" style={{lineHeight:"1.2"}} noGutters> 
             <Col xs={"auto"} className="mr-1 text-center">
                 <Image className="mt-md-0 my-2" src={userThumb} roundedCircle style={imgSize}/>
             </Col>

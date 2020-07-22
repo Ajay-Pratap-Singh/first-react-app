@@ -6,21 +6,21 @@ import Views from './Views';
 import {CommentIcon} from './Comments';
 import Report from './Report';
 
-export default function ViewsVoteShareReport(props){
+export default function ActionBar(props){
     return (
         <>
         <Row className="mt-4 justify-content-between flex-nowrap" noGutters>
             <Col md={9}>
                 <Row noGutters>
-                    <Views count="2393"/>
-                    <Vote downvotes={231} upvotes={789}/>
-                    <CommentIcon count={290}/>
+                    {props.views?<Views count="2393"/>:null}
+                    {props.vote?<Vote downvotes={231} upvotes={789}/>:null}
+                    {props.comment?<CommentIcon count={290}/>:null}
                 </Row>
             </Col>
             <Col xs={"auto"}>
                 <Row className="justify-content-end flex-nowrap h-100" noGutters>
-                    <Share title={"Element Title"} url={"https://element.url.om/elimentId"}/>
-                    <Report/>
+                    {props.share?<Share title={"Element Title"} url={"https://element.url.om/elimentId"}/>:null}
+                    {props.report?<Report/>:null}
                 </Row>
             </Col>
         </Row>

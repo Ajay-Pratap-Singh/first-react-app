@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import { IconContext } from "react-icons";
-import Post from './components/Post';
+import Entity from './components/Entity';
 import Navbar from './components/Navbar';
 import CategoriesPanel from './components/Categories';
 import axios from 'axios';
@@ -25,7 +25,7 @@ function App() {
               <CategoriesPanel/>
             </Col>
             <Col>
-              {posts.map((obj)=><Post key={obj.id} title={obj.title} body={obj.body} userId={obj.userId}/>)}
+              {posts.map((obj)=><Entity key={obj.id} id={obj.id} type="answer" title={obj.title} body={obj.body} userId={obj.userId}/>)}
             </Col>
             <Col xs={"auto"} className="d-none d-xl-block p-0">
               <CategoriesPanel/>

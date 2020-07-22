@@ -1,7 +1,8 @@
 import React,{useState, useContext} from 'react';
 import {FaThumbsDown,FaThumbsUp} from 'react-icons/fa';
 import {Button,Col,InputGroup,FormControl,Spinner} from 'react-bootstrap';
-import {VoteContext} from './Post';
+import {VoteContext} from './Entity';
+
 
 export default function Vote(props){
     const {voted,setVoted} = useContext(VoteContext);
