@@ -1,7 +1,7 @@
 import React, { useState, createContext } from 'react';
 import {Card} from 'react-bootstrap';
 import AuthorInfo from './AuthorInfo';
-import {CommentSection} from './Comments';
+import {CommentSection,CommentInput} from './Comments';
 import ActionBar from './ActionBar';
 
 const VoteContext=createContext({
@@ -10,6 +10,8 @@ const VoteContext=createContext({
 });
 
 const Entity = (props) => {
+    const [openCommentInput, setOpenCommentInput] = useState(false);
+    const [comments, setComments] = useState([]);
     const [voted,setVoted]=useState(null);//use props false(dislike)  null(not-voted)  true(like)
     const voteValue={voted,setVoted};
     return  (
@@ -19,10 +21,12 @@ const Entity = (props) => {
                 <AuthorInfo min={props.type==='comment'}/>
                 {props.body}
                 <VoteContext.Provider value={voteValue}>
-                    <ActionBar views={props.type!=='comment'} vote comment={props.type!=='comment'} share={props.type!=='comment'} report/>
+                    <ActionBar views={props.type!=='comment'} vote comment share={props.type!=='comment'} report setOpenCommentInput={setOpenCommentInput} OpenCommentInput={openCommentInput} />
                 </VoteContext.Provider>
+                {openCommentInput?<CommentInput setOpenCommentInput={setOpenCommentInput} comments={comments} 
+                setComments={setComments}/>:null}
             </Card.Body>
-            <CommentSection parentType={props.type} parentId={props.id} commentCount={3}/>
+            <CommentSection comments={comments} setComments={setComments} parentType={props.type} parentId={props.id} commentCount={3}/>
         </Card>
     )
 }

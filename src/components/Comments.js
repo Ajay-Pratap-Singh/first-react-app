@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Entity from './Entity';
 import {FaComment,FaAngleDown,FaAngleUp} from 'react-icons/fa';
-import {Button,Card,ListGroup,InputGroup,FormControl,Col,Row,Collapse, Container} from 'react-bootstrap';
+import {Button,Card,ListGroup,InputGroup,Form,FormControl,Col,Row,Collapse, Container} from 'react-bootstrap';
 import axios from 'axios';
 
 function CommentIcon(props){
@@ -12,6 +12,7 @@ function CommentIcon(props){
                     title="Comment"
                     className="pt-0" id="basic-addon1"
                     variant="secondary"
+                    onClick={()=>{props.setOpenCommentInput(!props.openCommentInput)}}
                 >
                     <FaComment size="1em"/>
                 </Button>
@@ -29,18 +30,54 @@ function CommentIcon(props){
     );
 }
 
+function CommentInput(props){
+    const [comment,setComment]=useState("");
+    const comments=props.comments;
+    const setComments=props.setComments;
+    const postComment=(e)=>{
+        e.preventDefault();
+        e.target.reset();
+        props.setOpenCommentInput(false);
+        setTimeout(()=>{
+            if(comment!=='')
+            setComments([{body:comment},...comments])
+        },50)
+    }
+    return (
+        <Form onSubmit={postComment} className="mt-3 w-100" inline>
+            <Form.Label htmlFor="inlineFormInputName2" srOnly>
+                Comment
+            </Form.Label>
+            <Form.Control
+                onChange={(e)=>{setComment(e.target.value)}}
+                style={{width:"calc( 98% - 75px )"}}
+                className="mr-2 mb-2"
+                size="sm"
+                placeholder="Enter comment"
+            />
+            <Button size="sm" type="submit" className="mb-2" style={{maxWiddth:"70px"}}>
+                Comment
+            </Button>
+        </Form>
+    );
+}
+
 function CommentSection(props) {
     const [open, setOpen] = useState(false);
-    const [comments, setComments] = useState([]);
+    const comments =props.comments;
+    const setComments =props.setComments;
+
     if(!props.commentCount)
         return null;
+
     const showComments = async ()=>{
         setOpen(!open)
-        if(comments.length===0){
+        if(comments.length<2){
             console.log('Fetching Comments for',props.parentId);
-            setComments((await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=2')).data);
+            setComments([...comments,...(await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=2')).data]);
         }
     }
+
     return (
         <Card.Footer className="p-0 pl-3">
             <Container>
@@ -81,4 +118,5 @@ function CommentSection(props) {
         </Card.Footer>
     );
 }
-export {CommentIcon,CommentSection};
+
+export {CommentIcon, CommentInput, CommentSection};

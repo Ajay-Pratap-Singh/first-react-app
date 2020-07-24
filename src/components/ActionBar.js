@@ -8,13 +8,12 @@ import Report from './Report';
 
 export default function ActionBar(props){
     return (
-        <>
         <Row className="mt-4 justify-content-between flex-nowrap" noGutters>
             <Col md={9}>
                 <Row noGutters>
                     {props.views?<Views count="2393"/>:null}
                     {props.vote?<Vote downvotes={231} upvotes={789}/>:null}
-                    {props.comment?<CommentIcon count={290}/>:null}
+                    {props.comment?<CommentIcon count={290} setOpenCommentInput={props.setOpenCommentInput} OpenCommentInput={props.openCommentInput}/>:null}
                 </Row>
             </Col>
             <Col xs={"auto"}>
@@ -24,6 +23,5 @@ export default function ActionBar(props){
                 </Row>
             </Col>
         </Row>
-        </>
     );
 }
