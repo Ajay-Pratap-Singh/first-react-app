@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import axios from 'axios';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {HashRouter as Router, Switch, Route} from 'react-router-dom'
 import QuestionPage from './components/QuestionPage';
 
 function App() {
