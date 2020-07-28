@@ -79,7 +79,7 @@ function CommentSection(props) {
     }
 
     return (
-        <Card.Footer className="p-0 pl-3">
+        <Card.Footer style={{fontSize:"0.9rem"}} className="p-0 pl-3">
             <Container>
                 <Row>
                     <Col>

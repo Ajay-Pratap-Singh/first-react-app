@@ -1,11 +1,10 @@
 import React,{useState, useEffect} from 'react';
 import { IconContext } from "react-icons";
-import Entity from './components/Entity';
 import Navbar from './components/Navbar';
-import CategoriesPanel from './components/Categories';
+import Home from './components/Home';
 import axios from 'axios';
-import {Container,Col,Row} from 'react-bootstrap';
-
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import QuestionPage from './components/QuestionPage';
 
 function App() {
   const [posts,setPosts]=useState([]);
@@ -16,25 +15,21 @@ function App() {
       })()
   },[]);
   return (
+    <Router>
     <IconContext.Provider value={{ size:"1.5em"}}>
       <div className="App">
         <Navbar/>
-        <Container fluid className="mx-4 mt-2 w-auto">
-          <Row>
-            <Col xs={"auto"} className="d-none d-lg-block p-0">
-              <CategoriesPanel/>
-            </Col>
-            <Col className="p-0 px-sm-2 px-md-3">
-              {posts.map((obj)=><Entity key={obj.id} id={obj.id} type="answer" title={obj.title} body={obj.body} userId={obj.userId}/>)}
-            </Col>
-            <Col xs={"auto"} className="d-none d-xl-block p-0">
-              <CategoriesPanel/>
-            </Col>
-          </Row>
-        </Container>
-        
+        <Switch>
+          <Route path="/" exact>
+            <Home posts={posts}/>
+          </Route>
+          <Route path="/question/:id" exact>
+            <QuestionPage/>
+          </Route>
+        </Switch>
       </div>
     </IconContext.Provider>
+    </Router>
   );
 }
 

@@ -5,7 +5,7 @@ import {Navbar, Form, Nav, FormControl, Button} from 'react-bootstrap';
 function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Qusol-Image</Navbar.Brand>
+        <Navbar.Brand href="/">Qusol-Image</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-4 mr-auto">
