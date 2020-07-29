@@ -90,9 +90,10 @@ function CommentSection(props) {
                         /*onClick={() => setOpen(!open)}*/
                         aria-controls="comment-sec"
                         aria-expanded={open} 
-                    >
+                    ><small>
                         {props.parentType==='comment'?`View ${props.commentCount} replies `:'View comments '}
                         {open?<FaAngleUp size="1em"/>:<FaAngleDown size="1em"/>}
+                        </small>
                     </Button>
                     <Col>
                         <hr/>

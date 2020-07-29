@@ -18,11 +18,12 @@ export default function WriteAnswer(props) {
   
         <Modal
             centered
-            size="lg"
+            size="xl"
             show={show}
             onHide={handleClose}
             backdrop="static"
             keyboard={false}
+            enforceFocus={false}
         >
             <Modal.Header closeButton>
                 <Modal.Title>Write Answer for: {props.questionTitle}</Modal.Title>
@@ -32,10 +33,10 @@ export default function WriteAnswer(props) {
                 <Form>
                     <Form.Group controlId="AnswerForm.ControlTextarea">
                         <Form.Label>Enter your answer</Form.Label>
-                        <Editor
-                            placeholder="Enter your Question here" rows="3"
-                            setAnswer={setAnswer}
-                            answer={answer} />
+                        <Editor 
+                            value={''} 
+                            onChange={content => setAnswer({ ...answer,body:content })} 
+                        />
                         <Form.Text id="QuestionHelpBlock" muted>
                             Make your submission awesome
                         </Form.Text>
