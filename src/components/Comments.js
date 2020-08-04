@@ -1,7 +1,7 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Entity from './Entity';
-import {FaComment,FaAngleDown,FaAngleUp} from 'react-icons/fa';
-import {Button,Card,ListGroup,InputGroup,Form,FormControl,Col,Row,Collapse, Container} from 'react-bootstrap';
+import {FaComment} from 'react-icons/fa';
+import {Button,Card,ListGroup,InputGroup,Form,FormControl,Col,Row, Container} from 'react-bootstrap';
 import axios from 'axios';
 
 function CommentIcon(props){
@@ -12,7 +12,7 @@ function CommentIcon(props){
                     title="Comment"
                     className="pt-0" id="basic-addon1"
                     variant="secondary"
-                    onClick={()=>{props.setOpenCommentInput(!props.openCommentInput)}}
+                    onClick={props.onClick}
                 >
                     <FaComment size="1em"/>
                 </Button>
@@ -63,57 +63,36 @@ function CommentInput(props){
 }
 
 function CommentSection(props) {
-    const [open, setOpen] = useState(false);
     const comments =props.comments;
     const setComments =props.setComments;
 
+    useEffect(()=>{
+        (async ()=>{
+            if(comments.length<2){
+                setComments([...comments,...(await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=4')).data]);
+            }
+        })()    
+    },[comments,setComments])
+
     if(!props.commentCount)
         return null;
-
-    const showComments = async ()=>{
-        setOpen(!open)
-        if(comments.length<2){
-            console.log('Fetching Comments for',props.parentId);
-            setComments([...comments,...(await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=2')).data]);
-        }
-    }
 
     return (
         <Card.Footer style={{fontSize:"0.9rem"}} className="p-0 pl-3">
             <Container>
                 <Row>
-                    <Col>
-                        <hr/>
-                    </Col>
-                    <Button size="sm" className="mx-auto my-0" variant="link"
-                        onClick={showComments}
-                        /*onClick={() => setOpen(!open)}*/
-                        aria-controls="comment-sec"
-                        aria-expanded={open} 
-                    ><small>
-                        {props.parentType==='comment'?`View ${props.commentCount} replies `:'View comments '}
-                        {open?<FaAngleUp size="1em"/>:<FaAngleDown size="1em"/>}
-                        </small>
-                    </Button>
-                    <Col>
-                        <hr/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Collapse in={open}>
-                        <ListGroup id="comment-sec" variant="flush" className="border-left">
-                            {comments.map((obj,key)=>
-                                <ListGroup.Item key={key} className="p-0 border-0">
-                                    <Entity
-                                        bg="light" 
-                                        className="w-100 border-bottom-0 border-left-0 border-right-0 rounded-0"
-                                        type="comment" 
-                                        body={obj.body}
-                                    />
-                                </ListGroup.Item>)
-                            }
-                        </ListGroup>
-                    </Collapse>
+                    <ListGroup id="comment-sec" variant="flush" className="border-left">
+                        {comments.map((obj,key)=>
+                            <ListGroup.Item key={key} className="p-0 border-0">
+                                <Entity
+                                    bg="light" 
+                                    className="w-100 border-bottom-0 border-left-0 border-right-0 rounded-0"
+                                    type="comment" 
+                                    body={obj.body}
+                                />
+                            </ListGroup.Item>)
+                        }
+                    </ListGroup>
                 </Row>
             </Container>
         </Card.Footer>

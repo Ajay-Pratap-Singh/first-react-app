@@ -8,7 +8,7 @@ const Category = (props) => {
         <ListGroup.Item
             className="d-flex justify-content-between align-items-center"
         >
-            <Link to={"question/"+props.id}>
+            <Link to={"/question/"+props.id}>
                 {props.name}
             </Link>
         </ListGroup.Item>

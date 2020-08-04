@@ -13,7 +13,7 @@ export default function ActionBar(props){
                 <Row noGutters>
                     {props.views?<Views count="2393"/>:null}
                     {props.vote?<Vote downvotes={231} upvotes={789}/>:null}
-                    {props.comment?<CommentIcon count={290} setOpenCommentInput={props.setOpenCommentInput} OpenCommentInput={props.openCommentInput}/>:null}
+                    {props.comment?<CommentIcon count={290} onClick={()=>{props.setOpenComments(!props.openComments)}}/>:null}
                 </Row>
             </Col>
             <Col xs={"auto"}>
