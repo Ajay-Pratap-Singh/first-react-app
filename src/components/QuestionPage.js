@@ -25,7 +25,7 @@ export default function QuestionPage(props) {
                 <br/>
                 <WriteAnswer answers={answers} setAnswers={setAnswers}/>
                 <br/>
-                {answers.map((obj,key)=><Entity key={key} id={obj.id} type="answer" body={ReactHtmlParser(obj.body)} userId={obj.userId}/>)}
+                {answers.map((obj,key)=><Entity key={obj.id} id={obj.id} type="answer" firstImg={ReactHtmlParser(obj.firstImg?obj.firstImg.outerHTML:null)} body={ReactHtmlParser(obj.body)} userId={obj.userId}/>)}
             </Col>
             <Col xs={4} className="d-none d-md-block p-0">
               <SuggestionsPanel/>

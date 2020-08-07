@@ -4,7 +4,6 @@ import AuthorInfo from './AuthorInfo';
 import {CommentSection,CommentInput} from './Comments';
 import ActionBar from './ActionBar';
 import EntityHeader from './EntityHeader';
-import ShowMoreText from 'react-show-more-text';
 
 const VoteContext=createContext({
     voted:null,
@@ -23,7 +22,15 @@ const Entity = (props) => {
             <Card.Body className="p-2 p-sm-3">
                 {props.type!=="comment"?<EntityHeader min type={props.type} eid={props.id} title={props.title}/>:null}
                 <AuthorInfo min={props.type==='comment'}/>
+                {expanded?null:(props.firstImg)}
                 <div ref={bodyContent} style={{maxHeight:expanded?"none":"11ch",overflow:"hidden"}}>
+                    {props.body}
+                    {props.body}
+                    {props.body}
+                    {props.body}
+                    {props.body}
+                    {props.body}
+                    {props.body}
                     {props.body}
                 </div>
                 <p style={{textAlign:"right", color:"blue",cursor:"pointer"}} onClick={(e)=>{

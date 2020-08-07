@@ -35,7 +35,14 @@ export default function WriteAnswer(props) {
                         <Form.Label>Enter your answer</Form.Label>
                         <Editor 
                             value={''} 
-                            onChange={content => setAnswer({ ...answer,body:content })} 
+                            onChange={content => {
+                                let img = document.createElement('div');
+                                img.innerHTML=content;
+                                img=img.querySelector('img');
+                                setAnswer({ ...answer,body:content, 
+                                // firstImg:img 
+                                })
+                            }}
                         />
                         <Form.Text id="QuestionHelpBlock" muted>
                             Make your submission awesome
@@ -53,7 +60,8 @@ export default function WriteAnswer(props) {
                         setLoading(true);
                         setTimeout(()=>{
                             handleClose();
-                            props.setAnswers([answer,...props.answers]);
+                            answer.id=Math.random()*1000+'';
+                            props.setAnswers([{...answer}].concat(props.answers));
                             setLoading(false);
                         },500)
                     }}
