@@ -18,7 +18,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-share": "^4.2.1",
-    "react-show-more-text": "^1.4.2"
+    "react-show-more-text": "^1.4.2",
+    "react-social-media-follow": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
