@@ -1,6 +1,7 @@
 import React from 'react';
-import { FaGlobe,FaBell, FaUserAlt,FaIdBadge } from "react-icons/fa";
+import { FaGlobe,FaBell ,FaIdBadge } from "react-icons/fa";
 import {Navbar, Form, Nav, FormControl, Button} from 'react-bootstrap';
+import SignIn from './SignInScreen';
 
 function NavBar() {
   return (
@@ -30,7 +31,7 @@ function NavBar() {
               <Nav.Link href="#globe"><FaGlobe/></Nav.Link>
               <Nav.Link href="#notifications"><FaBell/></Nav.Link>
               <Nav.Link href="#badges"><FaIdBadge/></Nav.Link>
-              <Nav.Link href="#profile"><FaUserAlt/></Nav.Link>
+              <SignIn/>
             </Nav>
         </Navbar.Collapse>
     </Navbar>
