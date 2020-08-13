@@ -51,6 +51,6 @@ function useProvideAuth() {
         user,
         signout,
         signinFormActive,
-        setSigninFormActive
+        setSigninFormActive,
     };
 }

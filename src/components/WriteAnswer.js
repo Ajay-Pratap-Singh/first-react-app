@@ -2,8 +2,10 @@ import React,{useState} from 'react';
 import {Button,Modal,Form, Spinner} from 'react-bootstrap'
 import AuthorInfo from './AuthorInfo';
 import Editor from './Editor';
+import {useAuth} from '../hooks/useAuth'
 
 export default function WriteAnswer(props) {
+    const auth=useAuth();
     const [show, setShow] = useState(false);
     const [loading,setLoading]=useState(false);
     const [answer,setAnswer]=useState({});
@@ -29,7 +31,7 @@ export default function WriteAnswer(props) {
                 <Modal.Title>Write Answer for: {props.questionTitle}</Modal.Title>
             </Modal.Header>
             <Modal.Body className="px-4">
-                <AuthorInfo/>
+                <AuthorInfo user={auth.user} self/>
                 <Form>
                     <Form.Group controlId="AnswerForm.ControlTextarea">
                         <Form.Label>Enter your answer</Form.Label>
