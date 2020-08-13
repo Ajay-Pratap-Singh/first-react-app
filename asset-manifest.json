@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/ajay-pratap-singh.github.io/first-react-app/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/ajay-pratap-singh.github.io/first-react-app/static/js/main.48907f0e.chunk.js",
-    "main.js.map": "/ajay-pratap-singh.github.io/first-react-app/static/js/main.48907f0e.chunk.js.map",
-    "runtime-main.js": "/ajay-pratap-singh.github.io/first-react-app/static/js/runtime-main.f304677b.js",
-    "runtime-main.js.map": "/ajay-pratap-singh.github.io/first-react-app/static/js/runtime-main.f304677b.js.map",
-    "static/css/2.af3c1da9.chunk.css": "/ajay-pratap-singh.github.io/first-react-app/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.bdefe91d.chunk.js": "/ajay-pratap-singh.github.io/first-react-app/static/js/2.bdefe91d.chunk.js",
-    "static/js/2.bdefe91d.chunk.js.map": "/ajay-pratap-singh.github.io/first-react-app/static/js/2.bdefe91d.chunk.js.map",
-    "index.html": "/ajay-pratap-singh.github.io/first-react-app/index.html",
-    "precache-manifest.c557bc9a1cc1b52a5fa466c60c2b06a7.js": "/ajay-pratap-singh.github.io/first-react-app/precache-manifest.c557bc9a1cc1b52a5fa466c60c2b06a7.js",
-    "service-worker.js": "/ajay-pratap-singh.github.io/first-react-app/service-worker.js",
-    "static/css/2.af3c1da9.chunk.css.map": "/ajay-pratap-singh.github.io/first-react-app/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.5ecd60fb.chunk.css.map": "/ajay-pratap-singh.github.io/first-react-app/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.bdefe91d.chunk.js.LICENSE.txt": "/ajay-pratap-singh.github.io/first-react-app/static/js/2.bdefe91d.chunk.js.LICENSE.txt",
-    "static/media/userThumb.jpeg": "/ajay-pratap-singh.github.io/first-react-app/static/media/userThumb.35d08c44.jpeg"
+    "main.css": "/first-react-app/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/first-react-app/static/js/main.0751237b.chunk.js",
+    "main.js.map": "/first-react-app/static/js/main.0751237b.chunk.js.map",
+    "runtime-main.js": "/first-react-app/static/js/runtime-main.6219d92b.js",
+    "runtime-main.js.map": "/first-react-app/static/js/runtime-main.6219d92b.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/first-react-app/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.ed94284b.chunk.js": "/first-react-app/static/js/2.ed94284b.chunk.js",
+    "static/js/2.ed94284b.chunk.js.map": "/first-react-app/static/js/2.ed94284b.chunk.js.map",
+    "index.html": "/first-react-app/index.html",
+    "precache-manifest.32a068fc0c5344307bccbf02a6bcc310.js": "/first-react-app/precache-manifest.32a068fc0c5344307bccbf02a6bcc310.js",
+    "service-worker.js": "/first-react-app/service-worker.js",
+    "static/css/2.af3c1da9.chunk.css.map": "/first-react-app/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/first-react-app/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.ed94284b.chunk.js.LICENSE.txt": "/first-react-app/static/js/2.ed94284b.chunk.js.LICENSE.txt",
+    "static/media/userThumb.jpeg": "/first-react-app/static/media/userThumb.35d08c44.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f304677b.js",
+    "static/js/runtime-main.6219d92b.js",
     "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.bdefe91d.chunk.js",
+    "static/js/2.ed94284b.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.48907f0e.chunk.js"
+    "static/js/main.0751237b.chunk.js"
   ]
 }
