@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import setAuthToken from '../utils/setAuthToken';
 
 firebase.initializeApp({
     apiKey: "AIzaSyBHCFpqUji6J7UTsEepwl2ez0y2UUSDBXk",
@@ -39,8 +40,12 @@ function useProvideAuth() {
 
     useEffect(() => {
         const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-            if (user)
+            if (user){
                 setUser(user);
+                user.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+                    setAuthToken(idToken);
+                })
+            }
             else 
                 setUser(false);
         });

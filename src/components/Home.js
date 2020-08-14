@@ -23,7 +23,7 @@ export default function Home(props) {
                 <AskQuestion/>
               </Row>
               <Row>
-                {props.posts.map((obj)=><Entity key={obj.id} id={obj.id} type="question" title={obj.title} body={obj.body} userId={obj.userId}/>)}
+                {props.posts.map((obj)=><Entity key={obj.id} id={obj.id} type="question" author={obj.author} title={obj.title} body={obj.body}/>)}
               </Row>
             </Col>
             <Col xs={"auto"} className="d-none d-xl-block p-0">

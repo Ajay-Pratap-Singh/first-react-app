@@ -21,7 +21,7 @@ const Entity = (props) => {
         <Card bg={props.bg} className={props.className||"mb-3"} style={{width:"100%"}}>
             <Card.Body className="p-2 p-sm-3">
                 {props.type!=="comment"?<EntityHeader min type={props.type} eid={props.id} title={props.title}/>:null}
-                <AuthorInfo min={props.type==='comment'}/>
+                <AuthorInfo author={props.author} min={props.type==='comment'}/>
                 {expanded?null:(props.firstImg)}
                 <div ref={bodyContent} style={{maxHeight:expanded?"none":"11ch",overflow:"hidden"}}>
                     {props.body}

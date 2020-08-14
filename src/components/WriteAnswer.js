@@ -31,7 +31,7 @@ export default function WriteAnswer(props) {
                 <Modal.Title>Write Answer for: {props.questionTitle}</Modal.Title>
             </Modal.Header>
             <Modal.Body className="px-4">
-                <AuthorInfo user={auth.user} self/>
+                <AuthorInfo author={auth.user} self/>
                 <Form>
                     <Form.Group controlId="AnswerForm.ControlTextarea">
                         <Form.Label>Enter your answer</Form.Label>
@@ -63,6 +63,7 @@ export default function WriteAnswer(props) {
                         setTimeout(()=>{
                             handleClose();
                             answer.id=Math.random()*1000+'';
+                            answer.author=auth.user;
                             props.setAnswers([{...answer}].concat(props.answers));
                             setLoading(false);
                         },500)

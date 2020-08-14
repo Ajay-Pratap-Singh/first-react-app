@@ -3,7 +3,7 @@ import SuggestionsPanel from './Suggestions';
 import AuthorInfo from './AuthorInfo';
 import Entity from './Entity';
 import {Container,Col,Row} from 'react-bootstrap';
-import axios from 'axios';
+import request from '../utils/requests';
 import ReactHtmlParser from 'react-html-parser';
 import WriteAnswer from './WriteAnswer';
 
@@ -12,7 +12,7 @@ export default function QuestionPage(props) {
     useEffect(()=>{
         (async ()=>{
           console.log('Fetching Answers');
-          setAnswers((await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=5')).data);
+          setAnswers((await request.get('https://jsonplaceholder.typicode.com/posts?_limit=5')).data);
         })()
     },[]);
     return (
@@ -25,7 +25,7 @@ export default function QuestionPage(props) {
                 <br/>
                 <WriteAnswer answers={answers} setAnswers={setAnswers}/>
                 <br/>
-                {answers.map((obj,key)=><Entity key={obj.id} id={obj.id} type="answer" firstImg={ReactHtmlParser(obj.firstImg?obj.firstImg.outerHTML:null)} body={ReactHtmlParser(obj.body)} userId={obj.userId}/>)}
+                {answers.map((obj,key)=><Entity key={obj.id} id={obj.id} type="answer" firstImg={ReactHtmlParser(obj.firstImg?obj.firstImg.outerHTML:null)} body={ReactHtmlParser(obj.body)} author={obj.author}/>)}
             </Col>
             <Col xs={4} className="d-none d-md-block p-0">
               <SuggestionsPanel/>

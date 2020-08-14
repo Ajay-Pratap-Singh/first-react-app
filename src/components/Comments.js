@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react';
 import Entity from './Entity';
 import {FaComment} from 'react-icons/fa';
 import {Button,Card,ListGroup,InputGroup,Form,FormControl,Col,Row, Container} from 'react-bootstrap';
-import axios from 'axios';
+import request from '../utils/requests';
+import { useAuth } from '../hooks/useAuth';
 
 function CommentIcon(props){
     return (
@@ -31,17 +32,18 @@ function CommentIcon(props){
 }
 
 function CommentInput(props){
+    const auth=useAuth();
     const [comment,setComment]=useState("");
     const comments=props.comments;
     const setComments=props.setComments;
     const postComment=(e)=>{
         e.preventDefault();
-        e.target.reset();
-        props.setOpenCommentInput(false);
         setTimeout(()=>{
             if(comment!=='')
-            setComments([{body:comment},...comments])
+            setComments([{body:comment,author:auth.user},...comments])
+            setComment('');
         },50)
+        e.target.reset();
     }
     return (
         <Form onSubmit={postComment} className="mt-3 w-100" inline>
@@ -69,7 +71,7 @@ function CommentSection(props) {
     useEffect(()=>{
         (async ()=>{
             if(comments.length<2){
-                setComments([...comments,...(await axios.get('https://jsonplaceholder.typicode.com/comments?_limit=4')).data]);
+                setComments([...comments,...(await request.get('https://jsonplaceholder.typicode.com/comments?_limit=4')).data]);
             }
         })()    
     },[comments,setComments])
@@ -89,6 +91,7 @@ function CommentSection(props) {
                                     className="w-100 border-bottom-0 border-left-0 border-right-0 rounded-0"
                                     type="comment" 
                                     body={obj.body}
+                                    author={obj.author}
                                 />
                             </ListGroup.Item>)
                         }

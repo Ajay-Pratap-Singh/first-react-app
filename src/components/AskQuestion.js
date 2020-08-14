@@ -1,8 +1,10 @@
 import React,{useState} from 'react';
 import {Button,Modal,Form, Spinner} from 'react-bootstrap'
 import AuthorInfo from './AuthorInfo';
+import { useAuth } from '../hooks/useAuth';
 
 export default function AskQuestion() {
+    const auth=useAuth();
     const [show, setShow] = useState(false);
     const [loading,setLoading]=useState(false);
     const [question,setQuestion]=useState({});
@@ -27,7 +29,7 @@ export default function AskQuestion() {
                 <Modal.Title>Ask a Question</Modal.Title>
             </Modal.Header>
             <Modal.Body className="px-4">
-                <AuthorInfo min/>
+                <AuthorInfo author={auth.user} self min/>
                 <Form>
                     <Form.Group controlId="AskQuestionForm.ControlTextarea">
                         <Form.Label>Enter the question you want to ask:</Form.Label>

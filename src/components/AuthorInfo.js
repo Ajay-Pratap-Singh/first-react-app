@@ -7,13 +7,13 @@ const AuthorInfo = (props) => {
     return  (
         <Row className="my-1 pt-2 pb-0" style={{lineHeight:"1.2"}} noGutters> 
             <Col xs={"auto"} className="mr-1 text-center">
-                <Image className="mt-md-0 my-2" src={props.user?props.user.photoURL:userThumb} roundedCircle style={imgSize}/>
+                <Image className="mt-md-0 my-2" src={props.author?props.author.photoURL:userThumb} roundedCircle style={imgSize}/>
             </Col>
             <Col>
                 <Col>
                     <p className="pr-0 m-0">
                         <strong>
-                            {props.user?props.user.displayName:"Abhishek Parashar Maheshwari"}
+                            {props.author?props.author.displayName:"Abhishek Parashar Maheshwari"}
                         </strong>
                         {props.min || props.self ?null:<span className="text-muted d-none d-md-inline ml-1" >
                             · last updated Jul 23
