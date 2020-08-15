@@ -7,7 +7,7 @@ const AuthorInfo = (props) => {
     return  (
         <Row className="my-1 pt-2 pb-0" style={{lineHeight:"1.2"}} noGutters> 
             <Col xs={"auto"} className="mr-1 text-center">
-                <Image className="mt-md-0 my-2" src={props.author?props.author.photoURL:userThumb} roundedCircle style={imgSize}/>
+                <Image className="mt-md-0 my-2" src={props.author?props.author.photoURL?props.author.photoURL:userThumb:userThumb} roundedCircle style={imgSize}/>
             </Col>
             <Col>
                 <Col>

@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {Button,Modal,Form, Spinner} from 'react-bootstrap'
 import AuthorInfo from './AuthorInfo';
 import { useAuth } from '../hooks/useAuth';
+import request from '../utils/requests';
 
 export default function AskQuestion() {
     const auth=useAuth();
@@ -52,10 +53,11 @@ export default function AskQuestion() {
                     variant="primary" 
                     onClick={()=>{
                         setLoading(true);
-                        setTimeout(()=>{
+                        request.post('/question',question).then((response)=>{
+                            console.log(response.body);
                             setLoading(false);
-                            handleClose()
-                        },500)
+                            alert('Question submitted id: ',response.body._id)
+                        })
                     }}
                 >
                     Ask
